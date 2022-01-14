@@ -6,7 +6,33 @@
   </head>
   <body>
     <script type="text/processing">
-      
+      PImage img;
+      void setup() {
+        size(1200, 741);
+        img = loadImage("nearharpersferry.jpeg");
+        img.resize(1200, 741); 
+      }
+
+      void draw(){
+        background(0);
+        noStroke();
+        
+        float tiles = mouseX/2;
+        float tileSize = width/tiles;
+        
+        translate(tileSize/2, tileSize/2);
+        
+        for (int x = 0; x < 1200; x++) {
+          for (int y = 0; y < 741; y++) {
+            
+            color c = img.get(int(x*tileSize), int(y*tileSize));
+            float size = map(brightness(c), 0, 255, 20, 0);
+            
+            ellipse(x*tileSize, y*tileSize, size, size);
+            fill(c);
+          }
+        }
+      }
     </script>
     <canvas id=sketch style="border: 1px solid black"></canvas>
   </body>
