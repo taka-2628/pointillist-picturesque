@@ -8,9 +8,9 @@
     <script type="text/processing">
       PImage img;
       void setup() {
-        size(1200, 741);
+        size(600, 370);
         img = loadImage("data/nearharpersferry.jpeg");
-        img.resize(1200, 741); 
+        img.resize(600, 370); 
       }
 
       void draw(){
@@ -22,8 +22,8 @@
         
         translate(tileSize/2, tileSize/2);
         
-        for (int x = 0; x < 1200; x++) {
-          for (int y = 0; y < 741; y++) {
+        for (int x = 0; x < 600; x++) {
+          for (int y = 0; y < 370; y++) {
             
             color c = img.get(int(x*tileSize), int(y*tileSize));
             float size = map(brightness(c), 0, 255, 20, 0);
